@@ -1,13 +1,15 @@
 import File_Crawler from './src/File_Crawler';
 
- var file_crawler = new File_Crawler({
-  url:'https://www.newgrounds.com/',
-  directory:'art',
-  file_pattern:'https://art.ngfiles.com/thumbnails',
+// example for initilizing the file crawler
+var file_crawler = new File_Crawler({
+  url:'https://example.com/',
+  directory:'',
+  file_pattern:'//thumb.example.com',
   query_type:'img_src',
   count:1,
 });
 
+// output will be returned from output() method
 file_crawler.init().then(
-  () => console.log( file_crawler.output() )
+  () => { console.log( file_crawler.output() ) }
 );
