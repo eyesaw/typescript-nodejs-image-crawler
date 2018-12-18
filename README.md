@@ -1,2 +1,2 @@
 # typescript-nodejs-image-crawler
-small class for crawling websites and get images or files
+small class for crawling websites and get images
