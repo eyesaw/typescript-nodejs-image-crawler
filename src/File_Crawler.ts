@@ -13,7 +13,7 @@ interface Config {
 export default class File_Crawler
 {
     // container for the returned image list
-    private image_source_list:string[] = [];
+    private source_list:string[] = [];
 
     constructor( private config:Config ){};
 
@@ -53,7 +53,7 @@ export default class File_Crawler
               // validate
               if( this.validate( HTML_images_elements[i].src ) ){
                   // add to list
-                  this.image_source_list.push( HTML_images_elements[i].src );
+                  this.source_list.push( HTML_images_elements[i].src );
               }
           }
 
@@ -99,11 +99,11 @@ export default class File_Crawler
     // return the requested image/s by count
     public output():string[]
     {
-      if( this.image_source_list ){
-        if(this.image_source_list.length < this.config.count ){
-            return this.image_source_list;
+      if( this.source_list ){
+        if(this.source_list.length < this.config.count ){
+            return this.source_list;
         } else {
-            return this.image_source_list.slice(0, this.config.count);
+            return this.source_list.slice(0, this.config.count);
         }
       } else {
         throw new Error( '[!] Could not recive anything' );
