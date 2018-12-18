@@ -58,6 +58,18 @@ export default class File_Crawler
           }
 
           break;
+
+        case 'link_src':
+          let HTML_link_elements = HTML_document.window.document.querySelectorAll("a");
+
+          for( let i = 0; i < HTML_link_elements.length; i++ ) {
+              // validate
+              if( this.validate( HTML_link_elements[i].href ) ){
+                  // add to list
+                  this.source_list.push( HTML_link_elements[i].href );
+              }
+          }
+
         //// TODO:  add regex functionality
         case 'regex':
           break;
@@ -73,6 +85,7 @@ export default class File_Crawler
 
       switch( this.config.query_type )
       {
+        case 'link_src':
         case 'img_src':
           return url.includes( this.config.file_pattern ) ? url : false;
           break;
